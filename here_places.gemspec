@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{A wafer-thin Ruby Wrapper for Nokia's Here Places API}
   gem.summary       = %q{A wafer-thin Ruby Wrapper for Nokia's Here Places API}
   gem.homepage      = "https://github.com/premjg/here_places"
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
