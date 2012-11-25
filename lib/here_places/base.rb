@@ -1,25 +1,28 @@
 module HerePlaces
   class Base
     @@base_url = 'http://places.nlp.nokia.com/'
-    @@api_prefix = 'places/v1/'
+    @@api_prefix = 'places/v1'
 
-    def initialize(app_id, app_code)
+    attr_reader :conn
+
+    def initialize(app_id, app_code, log=false)
       @app_id = app_id
       @app_code = app_code
+      @log = log
       setup()
     end
     
     def setup
       @conn = Faraday.new(:url => @@base_url) do |faraday|
         faraday.request  :url_encoded
-        faraday.response :logger
+        faraday.response :logger if @log
         faraday.adapter  Faraday.default_adapter
       end
     end
 
-    def api(url, data={})
+    def api(url_fragment, data={})
       result = @conn.get do |req|
-        req.url url
+        req.url url_fragment
         req.params['app_id'] = @app_id
         req.params['app_code'] = @app_code
         data.each do |key,value|
