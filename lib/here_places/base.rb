@@ -7,7 +7,7 @@ module HerePlaces
 
     def initialize(log=false)
       @log = log
-      setup()
+      setup
     end
     
     def setup
@@ -21,8 +21,8 @@ module HerePlaces
     def api(url_fragment, data={})
       result = @conn.get do |req|
         req.url url_fragment
-        req.params['app_id'] = HerePlaces.app_id
         req.params['app_code'] = HerePlaces.app_code
+        req.params['app_id']   = HerePlaces.app_id
         data.each do |key,value|
           req.params[key] = value
         end
@@ -35,18 +35,5 @@ module HerePlaces
         parsed_result
       end
     end
-  end
-
-  def self.set_keys(app_id, app_code)
-    @@app_id = app_id
-    @@app_code = app_code
-  end
-
-  def self.app_id
-    @@app_id
-  end
-
-  def self.app_code
-    @@app_code
   end
 end

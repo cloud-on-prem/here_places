@@ -1,49 +1,42 @@
 require 'spec_helper'
 
 describe HerePlaces::Base do
-  before(:each) do
-    @app_id = 'APP_ID'
-    @app_code = 'APP_CODE'
-  end
+  let(:object) { described_class.new }
+  let(:app_id) { 'APP_ID' }
+  let(:app_code) { 'APP_CODE' }
 
   context "after initialize" do
     it 'calls the setup method' do
-      HerePlaces::Base.any_instance.stub(:setup)
-      HerePlaces::Base.any_instance.should_receive(:setup)
-      @h = HerePlaces::Base.new(@app_id, @app_code)
+      expect_any_instance_of(described_class).to receive(:setup)
+      object
     end
   end
 
   context "the setup method" do
     it "correctly sets up the Faraday connection object" do
-      @h = HerePlaces::Base.new(@app_id, @app_code)
-      @h.conn.should be_an_instance_of(Faraday::Connection)
+      expect(object.conn).to be_an_instance_of(Faraday::Connection)
     end
   end
 
   context "api method" do
-    before(:each) do
-      @url_fragment = 'some/url/fragment'
-      @data = {test: 'stuff'}
-    end
+    let(:url_fragment) { 'some/url/fragment' }
+    let(:data) { { test: 'stuff' } }
 
     after(:each) do
       FakeWeb.clean_registry
     end
 
     it "correctly constructs the API URL and makes calls" do
-      @h = HerePlaces::Base.new(@app_id, @app_code)
-      FakeWeb.register_uri(:get, %r|^http:\/\/places\.nlp\.nokia\.com\/.*|, :body => {stuff: 'test'}.to_json)
-      @h.api(@url_fragment, @data)
-      @parametrized_data = URI.encode_www_form(@data)
-      FakeWeb.last_request.path.should eq("/#{@url_fragment}?app_id=#{@app_id}&app_code=#{@app_code}&#{@parametrized_data}")
+      FakeWeb.register_uri(:get, %r|^http:\/\/places\.nlp\.nokia\.com\/.*|, :body => {test: 'stuff'}.to_json)
+      object.api(url_fragment, data)
+      parametrized_data = URI.encode_www_form(data)
+      expect(FakeWeb.last_request.path).
+        to eq("/#{url_fragment}?app_code=#{app_code}&app_id=#{app_id}&#{parametrized_data}")
     end
 
     it "flips out and raises error when it receives an API error" do
-      @h = HerePlaces::Base.new(@app_id, @app_code)
       FakeWeb.register_uri(:get, %r|^http:\/\/places\.nlp\.nokia\.com\/.*|, :body => {status: 400, stuff: 'test'}.to_json)
-      expect {@h.api(@url_fragment, @data)}.to raise_error(HerePlaces::APIError)
+      expect{object.api(url_fragment, data)}.to raise_error(HerePlaces::APIError)
     end
   end
-
 end
