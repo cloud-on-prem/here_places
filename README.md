@@ -15,7 +15,7 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or install it with:
 
     $ gem install here_places
 
@@ -88,28 +88,6 @@ The discover here resource represent sets of places within a specific location c
 
 * * *
 
-### Places 
-
-#### The Place Resource <http://developer.here.net/docs/places/topics/resource-discover-here.html>  
-
-The place resource represent places on earth.
-Examples for places include:
-Places of (public) interest (POI)
-Addresses of buildings (Locations)
-Named areas and regions
-Each place is referenced by an identifier, called a placeId.
-
-```ruby
-    require 'here_places'
-    app_id = "YOUR_APP_ID"
-    app_code = "YOUR_APP_CODE"
-    id = '840dr5rs-5c0f37fabdc643938dd4f47db00d4ae8'
-    api = HerePlaces::Place.new
-    a = api.places(id)
-```
-
-* * *
-        
 ### Suggestions
 
 #### The Search Suggestion Resource <http://developer.here.net/docs/places/topics/resource-suggest.html>  
