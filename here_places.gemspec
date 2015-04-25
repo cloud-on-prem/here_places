@@ -5,7 +5,7 @@ require 'here_places/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "here_places"
-  gem.version       = HerePlaces::VERSION 
+  gem.version       = HerePlaces::VERSION
   gem.authors       = ["Prem Pillai"]
   gem.email         = ["prem.pillai@gmail.com"]
   gem.description   = %q{A wafer-thin Ruby Wrapper for Nokia's Here Places API}
