@@ -1,18 +1,15 @@
 require 'spec_helper'
 
 describe HerePlaces::Place do
-  before(:each) do
-    app_id = 'APP_ID'
-    app_code = 'APP_CODE'
-    @id = '123asdfa'
-    @h = HerePlaces::Place.new(app_id, app_code)
-    @h.stub!(:api)
-  end
+  let(:object) { described_class.new }
+  let(:id) { '123asdfa' }
 
   it 'responds correctly to places method and delegates to the api call' do
-    resource_url = "#{API_PREFIX}/places/#{@id}"
-    @h.should respond_to(:places)
-    @h.should_receive(:api).with(resource_url)
-    @h.places(@id)
+    resource_url = "#{API_PREFIX}/places/#{id}"
+
+    expect(object).to respond_to(:places)
+    expect(object).to receive(:api).with(resource_url)
+
+    object.places(id)
   end
 end
