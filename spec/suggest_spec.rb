@@ -1,15 +1,13 @@
 require 'spec_helper'
 
 describe HerePlaces::Suggest do
-  let(:object) { described_class.new }
-  let(:data) { { test: 'stuff' } }
+  let(:api) { described_class.new }
+  let(:payload) { { at: '52.5159,13.3777', q: 'berl' } }
 
-  it 'responds correctly to suggest method and delegates to the api call' do
-    resource_url = "#{API_PREFIX}/suggest"
-
-    expect(object).to respond_to(:suggest)
-    expect(object).to receive(:api).with(resource_url, data)
-
-    object.suggest(data)
+  it "calls the api and returns results correctly" do
+    VCR.use_cassette("suggest", record: :once) do
+      results = api.suggest(payload)
+      expect(results["suggestions"][0]).to eq "Berlin, Germany"
+    end
   end
 end

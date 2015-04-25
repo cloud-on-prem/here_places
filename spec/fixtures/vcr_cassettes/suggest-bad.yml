@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://places.nlp.nokia.com/places/v1/suggest?app_code=<APP_CODE>&app_id=<APP_ID>&q=berl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate
+      Content-Language:
+      - en
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sat, 25 Apr 2015 13:25:39 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 26 Apr 1970 20:00:00 GMT
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - NLP.PP=dad5f0b4-00e3-472e-95f0-b400e3272e27;Path=/;Domain=.nlp.nokia.com;Expires=Thu,
+        22-Oct-2015 13:25:39 GMT
+      - NLP.PS=a4e236ba-bed6-41dc-a236-babed6e1dcad;Path=/;Domain=.nlp.nokia.com
+      Vary:
+      - Accept, Accept-Encoding, Accept-Language, X-Map-Viewport, Geolocation, X-Mobility-Mode
+      X-Nlp-Tid:
+      - faa8d50f-5ff1-43cc-a8d5-0f5ff183cc68
+      Content-Length:
+      - '83'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status":400,"message":"No position or bounding box information."}'
+    http_version: 
+  recorded_at: Sat, 25 Apr 2015 13:25:39 GMT
+recorded_with: VCR 2.9.3

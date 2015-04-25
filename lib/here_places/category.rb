@@ -1,10 +1,13 @@
 module HerePlaces
   class Category < HerePlaces::Base
-    @@resource = 'categories'
+    def places(payload)
+      call_api(path, payload)
+    end
 
-    def places(data)
-      url = @@api_prefix + '/' + @@resource + '/' + 'places'
-      api(url, data)
+    private
+
+    def path
+      @_path ||= HerePlaces::API_PREFIX + '/' + 'categories' + '/' + 'places'
     end
   end
 end

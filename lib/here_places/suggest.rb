@@ -1,10 +1,13 @@
 module HerePlaces
   class Suggest < HerePlaces::Base
-    @@resource = 'suggest'
-
     def suggest(data)
-      url = @@api_prefix + '/' + @@resource
-      api(url, data)
+      call_api(path, data)
+    end
+
+    private
+
+    def path
+      @_path ||= HerePlaces::API_PREFIX + '/' + 'suggest'
     end
   end
 end

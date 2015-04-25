@@ -1,17 +1,28 @@
 require 'spec_helper'
 
 describe HerePlaces::Discover do
-  let(:object) { described_class.new }
-  let(:data) { { test: 'stuff' } }
+  let(:api) { described_class.new }
+  let(:payload) { { at: '52.5159,13.3777'} }
 
-  %w(search explore here).each do |meth|
-    it "responds correctly to #{meth} and delegates to the api call" do
-      resource_url = "#{API_PREFIX}/discover/#{meth}"
+  %w(explore here).each do |meth|
+    describe meth do
+      it "calls the api and returns results correctly" do
+        VCR.use_cassette("#{meth}", record: :once) do
+          results = api.send(:"#{meth}", payload)
+          expect(results["results"]["items"].count).to be > 0
+        end
+      end
+    end
+  end
 
-      expect(object).to respond_to(meth)
-      expect(object).to receive(:api).with(resource_url, data)
+  describe "search" do
+    let(:payload) { { at: '52.5159,13.3777', q: 'Cafe'} }
 
-      object.send(meth.to_sym, data)
+    it "calls the api and returns results correctly" do
+      VCR.use_cassette("search", record: :once) do
+        results = api.search(payload)
+        expect(results["results"]["items"].count).to be > 0
+      end
     end
   end
 end
