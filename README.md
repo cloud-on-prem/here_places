@@ -1,3 +1,5 @@
+[![wercker status](https://app.wercker.com/status/81bd9481a9248f8faadc499fe46321b1/s "wercker status")](https://app.wercker.com/project/bykey/81bd9481a9248f8faadc499fe46321b1)
+
 # HerePlaces
 A wafer-thin Ruby wrapper for accessing Nokia's Here Maps Places API.  
 Read more about the official API here: <http://developer.here.net/>
