@@ -1,0 +1,101 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://places.nlp.nokia.com/places/v1/places/276u33db-531d5952bc484395921c308c91730757?app_code=<APP_CODE>&app_id=<APP_ID>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate
+      Content-Language:
+      - en
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sat, 25 Apr 2015 12:57:03 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 26 Apr 1970 20:00:00 GMT
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - NLP.PP=5a639659-c041-49fe-a396-59c04129fe54;Path=/;Domain=.nlp.nokia.com;Expires=Thu,
+        22-Oct-2015 12:57:03 GMT
+      - NLP.PS=36eb5cfb-d22d-4322-ab5c-fbd22dc322b4;Path=/;Domain=.nlp.nokia.com
+      Vary:
+      - Accept, Accept-Encoding, Accept-Language, X-Map-Viewport, Geolocation, X-Mobility-Mode
+      X-Nlp-Tid:
+      - 817b64dc-d4bb-4246-bb64-dcd4bb424625
+      Content-Length:
+      - '184'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status":400,"message":"It is not permissible to use URL templating.
+        Please follow the Places API Developer Guide: http://places.demo.api.here.com/places/static/doc/public/#topics/required-user-flow.html"}'
+    http_version: 
+  recorded_at: Sat, 25 Apr 2015 12:55:34 GMT
+- request:
+    method: get
+    uri: http://places.nlp.nokia.com/places/v1/places/8409q8zn-67e57830aa21400592be5eb8cefb9133?app_code=<APP_CODE>&app_id=<APP_ID>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate
+      Content-Language:
+      - en
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sat, 25 Apr 2015 13:03:24 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 26 Apr 1970 20:00:00 GMT
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - NLP.PP=67578d79-7774-455f-978d-797774155f80;Path=/;Domain=.nlp.nokia.com;Expires=Thu,
+        22-Oct-2015 13:03:24 GMT
+      - NLP.PS=f05c2f82-99f0-48df-9c2f-8299f0a8dfbf;Path=/;Domain=.nlp.nokia.com
+      Vary:
+      - Accept, Accept-Encoding, Accept-Language, X-Map-Viewport, Geolocation, X-Mobility-Mode
+      X-Nlp-Tid:
+      - d52ca13c-b363-44a7-aca1-3cb36374a727
+      Content-Length:
+      - '184'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status":400,"message":"It is not permissible to use URL templating.
+        Please follow the Places API Developer Guide: http://places.demo.api.here.com/places/static/doc/public/#topics/required-user-flow.html"}'
+    http_version: 
+  recorded_at: Sat, 25 Apr 2015 13:01:55 GMT
+recorded_with: VCR 2.9.3

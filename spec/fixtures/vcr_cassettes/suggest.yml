@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://places.nlp.nokia.com/places/v1/suggest?app_code=<APP_CODE>&app_id=<APP_ID>&at=52.5159,13.3777&q=berl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store, must-revalidate
+      Content-Language:
+      - en
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sat, 25 Apr 2015 13:07:38 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Thu, 26 Apr 1970 20:00:00 GMT
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - NLP.PP=4ed71ec3-ba9e-4f3b-971e-c3ba9e5f3bd4;Path=/;Domain=.nlp.nokia.com;Expires=Thu,
+        22-Oct-2015 13:07:38 GMT
+      - NLP.PS=bea27caf-a77b-43c7-a27c-afa77bb3c785;Path=/;Domain=.nlp.nokia.com
+      Vary:
+      - Accept, Accept-Encoding, Accept-Language, X-Map-Viewport, Geolocation, X-Mobility-Mode
+      X-Nlp-Tid:
+      - 1206ebbb-56ed-476f-86eb-bb56ed976f26
+      Content-Length:
+      - '328'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJzdWdnZXN0aW9ucyI6WyJCZXJsaW4sIEdlcm1hbnkiLCJDb3JhLUJlcmxp
+        bmVyLVN0cmHDn2UsIDEwMTE3IEJlcmxpbiwgR2VybWFueSIsIkJlcmxpbiBU
+        b3VyaXNtdXMgTWFya2V0aW5nIiwiQmVybGluZXIgU3Bhcmthc3NlIiwiQmVy
+        bGluZXIgRnJlaWhlaXQsIDEwNzg1IEJlcmxpbiwgR2VybWFueSIsIkVtYmFz
+        c3kgb2YgdGhlIFVuaXRlZCBTdGF0ZXMgQmVybGluIiwiTmV1ZW5oYWdlbiBi
+        ZWkgQmVybGluLCBHZXJtYW55IiwiQmVybGluZXIgVm9sa3NiYW5rIiwiQmVy
+        bGluZXIgTWF1ZXJ3ZWcsIDEwMTE3IEJlcmxpbiwgR2VybWFueSIsIkJlcmxp
+        biBUb3VyaXN0IEluZm8iLCJTY2jDtm5laWNoZSBiZWkgQmVybGluLCBHZXJt
+        YW55IiwiQW0gQmVybGluLU11c2V1bSwgMTA5NjkgQmVybGluLCBHZXJtYW55
+        IiwiRsO2cmRlcmtyZWlzIFJhdW0gZGVyIFN0aWxsZSBpbiBCZXJsaW4gZS5W
+        LiIsIkJlcm5hdSBiZWkgQmVybGluLCBHZXJtYW55IiwiQmVybGluIGluZm9z
+        dG9yZSIsIkJlcmxpbmVyIFZvcnN0YWR0LCBQb3RzZGFtLCBHZXJtYW55Iiwi
+        QmVybGljaGluZ2Vuc3RyYcOfZSwgMTA1NTMgQmVybGluLCBHZXJtYW55Iiwi
+        RXZlcnl0aGluZyBBYm91dCBCZXJsaW4iLCJSw7xkZXJzZG9yZiBiZWkgQmVy
+        bGluLCBHZXJtYW55IiwiQmVybGluZXIgU3RyYcOfZSwgMTA3MTUgQmVybGlu
+        LCBHZXJtYW55Il19
+    http_version: 
+  recorded_at: Sat, 25 Apr 2015 13:06:09 GMT
+recorded_with: VCR 2.9.3

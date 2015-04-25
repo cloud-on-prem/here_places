@@ -1,15 +1,14 @@
 require 'spec_helper'
 
 describe HerePlaces::Category do
-  let(:object) { described_class.new }
-  let(:data) { { test: 'stuff' } }
+  let(:api) { described_class.new }
+  let(:payload) { { at: '52.5159,13.3777', cat: 'sights-museums' } }
 
-  it 'responds correctly to places method and delegates to the api call' do
-    resource_url = "#{API_PREFIX}/categories/places"
-
-    expect(object).to respond_to(:places)
-    expect(object).to receive(:api).with(resource_url, data)
-
-    object.places(data)
+  it "calls the api and returns results correctly" do
+    VCR.use_cassette("categories", record: :once) do
+      results = api.places(payload)
+      expect(results["items"][0]["title"]).to eq "Eat & Drink"
+    end
   end
+
 end
