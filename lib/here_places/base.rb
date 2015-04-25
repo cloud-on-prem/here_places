@@ -9,7 +9,7 @@ module HerePlaces
       @log = log
       setup
     end
-    
+
     def setup
       @conn = Faraday.new(:url => @@base_url) do |faraday|
         faraday.request  :url_encoded
@@ -27,7 +27,7 @@ module HerePlaces
           req.params[key] = value
         end
       end
-      
+
       parsed_result = JSON.parse(result.body)
       if parsed_result["status"]
         raise HerePlaces::APIError.new(parsed_result), parsed_result['message']
@@ -35,5 +35,18 @@ module HerePlaces
         parsed_result
       end
     end
+  end
+
+  def self.set_keys(app_id, app_code)
+    @@app_id = app_id
+    @@app_code = app_code
+  end
+
+  def self.app_id
+    @@app_id
+  end
+
+  def self.app_code
+    @@app_code
   end
 end

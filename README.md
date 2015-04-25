@@ -27,12 +27,19 @@ To start using the APIs, register for a Nokia Developer Account <http://develope
 
 * * *
 
+### Set up the API creds 
+
+```ruby
+HerePlaces.set_keys(:app_id, :app_code)
+```
+
 ### Discover API 
 
 #### Searching <http://developer.here.net/docs/places/topics/resource-search.html>  
 
 The search resource represent sets of places that match a user's search term in a specific location context (such as near a given location, around a user's current position or on the currently visible map).
 
+```ruby
     require 'here_places'
     app_id = "YOUR_APP_ID"
     app_code = "YOUR_APP_CODE"
@@ -40,14 +47,16 @@ The search resource represent sets of places that match a user's search term in 
       q: 'Cafe',
       at: '40.74917,-73.98529',
     }
-    api = HerePlaces::Discover.new(app_id, app_code)
+    api = HerePlaces::Discover.new
     a = api.search(data)
+```
 
 #### Exploring <http://developer.here.net/docs/places/topics/resource-explore.html>  
 
 The explore resource represent sets of popular places within a specific location context. The explore resource allows users to explore places without typing search queries. An explore resource's location context might be an explicitly given location or implicitly defined by a user's current position or the currently visible map. Optionally, the places may be restricted to a given set of categories.
 `at` and `in` parameter are mutually exclusive and can't be passed at the same time
 
+```ruby
     require 'here_places'
     app_id = "YOUR_APP_ID"
     app_code = "YOUR_APP_CODE"
@@ -55,13 +64,15 @@ The explore resource represent sets of popular places within a specific location
       cat: 'natural-geographical',
       at: '40.74917,-73.98529',
     }
-    api = HerePlaces::Discover.new(app_id, app_code)
+    api = HerePlaces::Discover.new
     a = api.explore(data)
+```
     
 #### Here <http://developer.here.net/docs/places/topics/resource-discover-here.html>  
 
 The discover here resource represent sets of places within a specific location context. The Discover Here resource allows users to request places near to a given point, based on a location precision parameter which must be provided. If the precision is high, the places around that point are returned in order of proximity. Otherwise, a set of recommended places in the area is returned.
 
+```ruby
     require 'here_places'
     app_id = "YOUR_APP_ID"
     app_code = "YOUR_APP_CODE"
@@ -69,8 +80,9 @@ The discover here resource represent sets of places within a specific location c
       cat: 'natural-geographical',
       at: '40.7063,-73.9971;u=0',
     }
-    api = HerePlaces::Discover.new(app_id, app_code)
+    api = HerePlaces::Discover.new
     a = api.here(data)
+```
 
 * * *
 
@@ -85,12 +97,14 @@ Addresses of buildings (Locations)
 Named areas and regions
 Each place is referenced by an identifier, called a placeId.
 
+```ruby
     require 'here_places'
     app_id = "YOUR_APP_ID"
     app_code = "YOUR_APP_CODE"
     id = '840dr5rs-5c0f37fabdc643938dd4f47db00d4ae8'
-    api = HerePlaces::Place.new(app_id, app_code)
+    api = HerePlaces::Place.new
     a = api.places(id)
+```
 
 * * *
         
@@ -100,6 +114,7 @@ Each place is referenced by an identifier, called a placeId.
 
 The search suggestions resource represents lists of suggested search terms related to a given (partial) search term and location context.
 
+```ruby
     require 'here_places'
     app_id = "YOUR_APP_ID"
     app_code = "YOUR_APP_CODE"
@@ -107,8 +122,9 @@ The search suggestions resource represents lists of suggested search terms relat
       q: 'restaur',
       at: '40.7063,-73.9971',
     }
-    api = HerePlaces::Suggest.new(app_id, app_code)
+    api = HerePlaces::Suggest.new
     a = api.suggest(data)
+```
 
 * * *
 
@@ -118,14 +134,16 @@ The search suggestions resource represents lists of suggested search terms relat
 
 The category graph resource represents sets of locally relevant categories that are organized in a graph-like hierarchy. The category graph may change at any point in the future and may be different depending on the location of the request. A set of permanent, top-level, categories can be found [here](http://developer.here.net/docs/places/topics/categories.html).
 
+```ruby
     require 'here_places'
     app_id = "YOUR_APP_ID"
     app_code = "YOUR_APP_CODE"
     data = {
       at: '40.7063,-73.9971',
     }
-    api = HerePlaces::Category.new(app_id, app_code)
+    api = HerePlaces::Category.new
     a = api.places(data)
+```
 
 * * *
 
